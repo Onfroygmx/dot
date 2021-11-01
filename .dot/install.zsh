@@ -7,3 +7,5 @@
 #   _| || | | \__ \ || (_| | | |
 #   \___/_| |_|___/\__\__,_|_|_|
 #
+### Install base
+## curl -fsSL https://raw.githubusercontent.com/Onfroygmx/dot/main/.dot/install.zsh | zsh
