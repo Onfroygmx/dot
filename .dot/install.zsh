@@ -37,12 +37,14 @@ git --git-dir=$HOME/.dotgit --work-tree=$HOME checkout
 
 printf "\n$fg[yellow]Create other folders$reset_color\n"
 # Create other dir
-[[ ! -d "$PLUGIN_DIR" ]] && mkdir -p $PLUGIN_DIR
-[[ ! -d "$XDG_DATA_HOME" ]] && mkdir -p $XDG_DATA_HOME
+[[ ! -d "$PLUGIN_DIR" ]] && mkdir -pv $PLUGIN_DIR
+[[ ! -d "$XDG_DATA_HOME" ]] && mkdir -pv $XDG_DATA_HOME
 
 printf "\n$fg[yellow]Set permission 700 to all created folders$reset_color\n"
-find $XDG_CONFIG_HOME -type d -print0 | xargs -0 chmod 700
-mv .dotgit $XDG_CONFIG_HOME
+find $XDG_CONFIG_HOME -type d -print0 | xargs -0 chmod -v 700
+
+printf "\n$fg[yellow]Move bare repo$reset_color\n"
+mv -v .dotgit $XDG_CONFIG_HOME
 
 
 printf "\n$fg[cyan]Clone external Plugins$reset_color\n"
@@ -76,7 +78,7 @@ if [[ ! -f "$MYSQL_HISTFILE" ]]; then
     mkdir -pv "$MYSQL_HISTFILE:h" && touch "$MYSQL_HISTFILE"
 fi
 
-printf "\n$fg[yellow]Compile all source files in plugin folder$reset_color\n"
+printf "\n$fg[yellow]Compile all source files in $PLUGIN_DIR folder$reset_color\n"
 zcompile-many $PLUGIN_DIR/zmod/zmod.zsh
 
 
