@@ -1,0 +1,20 @@
+[user]
+    name = Onf
+    email = onfroy@gmx.com
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = auto
+
+[core]
+    editor = nano
+    excludesFile = ~/.dot/cfg/git/gitignore_global
+
+[commit]
+    template = ~/.dot/cfg/git/gitmessage
+
+[alias]
+    # Bare repository dot files
+    dot = !git --git-dir=$XDG_CONFIG_HOME/.dotgit/ --work-tree=$HOME

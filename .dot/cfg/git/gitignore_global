@@ -1,0 +1,12 @@
+## Folders
+# history etc live)
+.dot/data
+.dot/data/*
+
+# Files
+*.zwc
+
+# Git aliases, identification info
+.gitconfig
+# The gitignore of this repository itself (!)
+!.gitignore
