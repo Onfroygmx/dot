@@ -23,7 +23,6 @@ fi
 #
 # To launch:
 # ZSH_XTRACE=true zsh
-#if [[ $ZSH_XTRACE ]]; then
 if [[ "$ZSH_XTRACE" = true ]]; then
   [[ ! -d "$ZSH_CACHE_DIR/xtrace" ]] && mkdir -p "$ZSH_CACHE_DIR/xtrace"
   (( ${+EPOCHREALTIME} )) || zmodload zsh/datetime
