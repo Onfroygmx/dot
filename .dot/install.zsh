@@ -55,6 +55,20 @@ printf "\n$fg[yellow]Clone: scopatz/nanorc$reset_color\n"
 git clone --depth 1 https://github.com/scopatz/nanorc.git $PLUGIN_DIR/nano-syntax-highighting
 
 
+PLUGINS=(
+    zchee/zsh-completions
+    zsh-users/zsh-completions
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-history-substring-search
+)
+
+for plug in $PLUGINS; do
+    printf "\n$fg[yellow]Clone: $plug$reset_color\n"
+    git clone --depth 1 https://github.com/$plug.git $PLUGIN_DIR/$plug
+done
+
+
 printf "\n$fg[cyan]Setup environment files$reset_color\n"
 printf "$fg[yellow]Link config files to root folder$reset_color\n"
 ## Set zshenv file
@@ -85,6 +99,9 @@ fi
 
 printf "\n$fg[yellow]Compile all source files in $PLUGIN_DIR folder$reset_color\n"
 zcompile-many $PLUGIN_DIR/zmod/zmod.zsh
+zcompile-many $PLUGINS_DIR/zsh-users/zsh-syntax-highlighting/{zsh-syntax-highlighting.zsh,highlighters/*/*.zsh}
+zcompile-many $PLUGINS_DIR/zsh-users/zsh-autosuggestions/{zsh-autosuggestions.zsh,src/**/*.zsh}
+zcompile-many $PLUGINS_DIR/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 
 printf "\n$fg[green]Install fininshed, restart ZSH$reset_color\n"

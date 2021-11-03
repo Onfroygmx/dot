@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+#!/bin/zsh
+
+# Aur shared build folder
+export BUILDERS_HOME="/srv/builds"
+
+# RUST
+export CARGO_HOME="$BUILDERS_HOME/.cargo"
+export RUSTUP_HOME="$BUILDERS_HOME/.rustup"
+
+################################
+# Set PATHS #
+################################
+
+# Set fpath for compinit (completions) at the beginning with specific macos completions
+fpath=(
+  $PLUGIN_DIR/zchee/zsh-completions/src/{go,zsh}(N)
+  $fpath
+)

@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+#!/bin/zsh
+
+# Set LANG if not set by the system (MacOS)
+(( ${+LANG} )) || export LANG='en_US.UTF-8'
+
+export LESSOPEN="|$(brew --prefix)/bin/lesspipe.sh %s"
+LESS_ADVANCED_PREPROCESSOR=1
+
+################################
+# Set PATHS #
+################################
+
+# Set fpath for compinit (completions) at the beginning with specific macos completions
+fpath=(
+  $PLUGIN_DIR/zchee/zsh-completions/src/{macOS,zsh}(N)
+  $fpath
+)
+
+# Set standard paths add gnu-commands to MACOS
+path=(
+  /usr/local/opt/coreutils/libexec/gnubin(N)   # Gnu Core utils MacOS
+  /usr/local/opt/findutils/libexec/gnubin(N)   # Gnu Find utils MacOs
+  /usr/local/opt/gnu-time/libexec/gnubin(N)    # Gnu-time MacOS
+  $path
+)
