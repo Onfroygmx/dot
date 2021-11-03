@@ -58,7 +58,7 @@ git clone --depth 1 https://github.com/scopatz/nanorc.git $PLUGIN_DIR/nano-synta
 printf "\n$fg[cyan]Setup environment files$reset_color\n"
 printf "$fg[yellow]Link config files to root folder$reset_color\n"
 ## Set zshenv file
-[[ ! -f $HOME/.zshenv && -f $ZDOTDIR/zshenv ]] && ln -s $ZDOTDIR/zshenv $HOME/.zshenv
+[[ ! -f $HOME/.zshenv && -f $ZDOTDIR/zshenv ]] && ln -sv $ZDOTDIR/zshenv $HOME/.zshenv
 # Link configuration files to correct place
 ln -sv $XDG_CONFIG_HOME/cfg/nano/nanorc $HOME/.nanorc
 ln -sv $XDG_CONFIG_HOME/cfg/git/gitconfig $HOME/.gitconfig
@@ -66,8 +66,6 @@ ln -sv $XDG_CONFIG_HOME/cfg/git/gitconfig $HOME/.gitconfig
 printf "\n$fg[yellow]Setup local git for dot files$reset_color\n"
 git dot config --local user.name "dotOnf"
 git dot config --local credential.helper 'store --file $XDG_CONFIG_HOME/cfg/git/git-credentials'
-git dot ls-remote https://Onfroygmx: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@github.com/Onfroygmx/dot
-git dot config --local -l
 
 printf "\n$fg[yellow]Create firectory file structure for history management$reset_color\n"
 # $HISTFILE(S) belongs in the data home, not with the configs
