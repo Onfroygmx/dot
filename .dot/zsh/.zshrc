@@ -34,7 +34,10 @@ if [[ "$ZSH_XTRACE" = true ]]; then
   setopt XTRACE PROMPT_SUBST
 fi
 
+source $PLUGIN_DIR/zmod/zmod.zsh
 
+autoload -Uz compinit
+@zcompinit "$ZSH_COMPDUMP"
 
 #
 # Zprofile

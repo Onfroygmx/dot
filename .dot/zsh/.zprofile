@@ -16,8 +16,10 @@
 ###############################
 
 # Set specific path variables
-MODULE_DIR=$ZDOTDIR/modules
-PLUGIN_DIR=$XDG_CONFIG_HOME/plugins
+export MODULE_DIR=$ZDOTDIR/modules
+export PLUGIN_DIR=$XDG_CONFIG_HOME/plugins
+export ZSH_COMPDUMP=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump
+[[ -d "$ZSH_COMPDUMP:h" ]] || mkdir -p "$ZSH_COMPDUMP:h"
 
 # editor
 export EDITOR='nano'
