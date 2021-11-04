@@ -1,6 +1,10 @@
 #!/usr/bin/env zsh
 #!/bin/zsh
 
+# Disbale session management in macos: Must be done after zshenv and before zshrc
+# Avoids macos to create session folders for history ...
+export SHELL_SESSIONS_DISABLE=1
+
 # Set LANG if not set by the system (MacOS)
 (( ${+LANG} )) || export LANG='en_US.UTF-8'
 
