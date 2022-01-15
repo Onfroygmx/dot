@@ -34,6 +34,35 @@ if [[ "$ZSH_XTRACE" = true ]]; then
   setopt XTRACE PROMPT_SUBST
 fi
 
+
+PROMPT='%F{green}%n%f %F{cyan}%(4~|%-1~/.../%2~|%~)%f %F{magenta}%B>%b%f '
+RPROMPT='%(?.%F{green}.%F{red}[%?] - )%B%D{%H:%M:%S}%b%f'
+
+source $PLUGIN_DIR/zmod/zmod.zsh
+
+#declare -A MODULES
+MODULES=(
+  aliases
+#  history
+#  colored-man
+#  dircolor
+  completions
+)
+
+PLUGINS=(
+  zsh-users/zsh-syntax-highlighting
+  zsh-users/zsh-autosuggestions
+  zsh-users/zsh-history-substring-search
+)
+
+# Source module files
+for module in $MODULES; do
+  zmod load "$MODULE_DIR/$module/$module.zsh" "module/$module"
+done
+
+
+
+
 source $PLUGIN_DIR/zmod/zmod.zsh
 
 autoload -Uz compinit
@@ -57,3 +86,5 @@ if [[ "$ZSH_XTRACE" = true ]]; then
   exec 2>&3 3>&-
   print -P "Trace logged to: %F{yellow}${tracefile}%f"
 fi
+
+STARTUP_Z=$EPOCHREALTIME

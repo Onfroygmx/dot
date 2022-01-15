@@ -70,8 +70,6 @@ printf "\n$fg[green]Link config files to root folder$reset_color\n"
 ln -sv $ZDOTDIR/zshenv $HOME/.zshenv
 ln -sv $XDG_CONFIG_HOME/cfg/nano/nanorc $HOME/.nanorc
 ln -sv $XDG_CONFIG_HOME/cfg/git/gitconfig $HOME/.gitconfig
-ln -sv $XDG_CONFIG_HOME/cfg/git/gitmessage $HOME/.gitmessage
-ln -sv $XDG_CONFIG_HOME/cfg/git/gitignore_global $HOME/.gitignore_global
 
 
 printf "\n$fg[green]Clone external Plugins$reset_color\n"

@@ -1,0 +1,5 @@
+.dotgit
+.git
+*.zwc
+*.nanorc
+.gitignore

@@ -1,12 +1,12 @@
 [user]
-    name = Onf
+    name  = Onf
     email = onfroy@gmx.com
 
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    ui = auto
+    diff    = auto
+    status  = auto
+    branch  = auto
+    ui      = auto
 
 [core]
     editor = nano
