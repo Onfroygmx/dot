@@ -6,10 +6,15 @@
 export SHELL_SESSIONS_DISABLE=1
 
 # Set LANG if not set by the system (MacOS)
-(( ${+LANG} )) || export LANG='en_US.UTF-8'
+(( ${+LANG}   )) || export LANG='en_US.UTF-8'
+(( ${+LC_ALL} )) || export LC_ALL="$LANG"
 
-export LESSOPEN="|$(brew --prefix)/bin/lesspipe.sh %s"
+#export LESSOPEN="|$(brew --prefix)/bin/lesspipe.sh %s"
+export LESSOPEN="|/usr/local/bin/lesspipe.sh %s"
 LESS_ADVANCED_PREPROCESSOR=1
+
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
 
 ################################
 # Set PATHS #

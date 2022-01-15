@@ -8,6 +8,8 @@
 #  \_____/___/_| |_|_|  \___|
 #
 
+setopt no_beep
+
 #
 # Zprofile
 #
