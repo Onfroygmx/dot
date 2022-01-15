@@ -62,14 +62,6 @@ for module in $MODULES; do
   zmod load "$MODULE_DIR/$module/$module.zsh" "module/$module"
 done
 
-
-
-
-source $PLUGIN_DIR/zmod/zmod.zsh
-
-autoload -Uz compinit
-@zcompinit "$ZSH_COMPDUMP"
-
 #
 # Zprofile
 #
