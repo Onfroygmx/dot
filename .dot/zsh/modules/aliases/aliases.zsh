@@ -41,7 +41,7 @@ alias curl='curl --continue-at - --location --progress-bar --remote-name --remot
 
 # utilities
 showpath() print -rC1 -- $path
-#(( $+commands[tree]  )) && alias tree='tree -a -I .git --dirsfirst'
+showfpath() print -rC1 -- $fpath
 
 # Lists the ten most used commands.
 alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"

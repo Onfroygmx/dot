@@ -1,0 +1,22 @@
+#!/bin/zsh
+#autoload
+
+# Update git repos in specified folder and subfolders and recompile if necessary
+# $1 = folder to start the search
+
+function updateplugins {
+  zmod update $PLUGIN_DIR
+
+  print
+  print -P "%F{green}Recompile plugins!%f"
+  zmod compile $PLUGIN_DIR/zsh-users/zsh-syntax-highlighting/{zsh-syntax-highlighting.zsh,highlighters/*/*.zsh}
+  zmod compile $PLUGIN_DIR/zsh-users/zsh-autosuggestions/{zsh-autosuggestions.zsh,src/**/*.zsh}
+  zmod compile $PLUGIN_DIR/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
+  zmod compile $PLUGIN_DIR/zmod/zmod.zsh
+
+  print
+  print -P "%F{green}Delete compdump file!%f"
+  rm -rf ~/.cache/zsh/zcompdump*
+
+}
+updateplugins "$@"
