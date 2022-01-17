@@ -18,6 +18,7 @@ ZSH_CACHE=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache
 # Enable completion caching & store cache file
 zstyle ':completion:*'              cache-path $ZSH_CACHE
 zstyle ':completion:*'              use-cache true
+zstyle ':completion:*' 							accept-exact '*(N)'
 
 zstyle ':completion:*'              squeeze-slashes true
 zstyle ':completion:*'              insert-tab true
