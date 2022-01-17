@@ -1,4 +1,6 @@
+#!/usr/bin/env zsh
 #!/bin/zsh
+
 # history.zsh
 #    _   _ _     _
 #   | | | (_)___| |_ ___  _ __ _   _

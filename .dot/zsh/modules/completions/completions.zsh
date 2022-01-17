@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+#!/bin/zsh
 
 zmodload zsh/complist
 zmodload zsh/computil
