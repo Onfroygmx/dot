@@ -86,11 +86,11 @@ printf "$fg[yellow]Clone: zmod$reset_color\n"
 git clone https://github.com/Onfroygmx/zmod.git $PLUGIN_DIR/zmod
 
 printf "\n$fg[yellow]Clone: scopatz/nanorc$reset_color\n"
-git clone --depth 1 https://github.com/scopatz/nanorc.git $PLUGIN_DIR/nano-syntax-highighting
+git clone --depth=1 https://github.com/scopatz/nanorc.git $PLUGIN_DIR/nano-syntax-highighting
 
 for plug in $PLUGINS; do
     printf "\n$fg[yellow]Clone: $plug$reset_color\n"
-    git clone --depth 1 https://github.com/$plug.git $PLUGIN_DIR/$plug
+    git clone --depth=1 https://github.com/$plug.git $PLUGIN_DIR/$plug
 done
 
 printf "\n$fg[green]Compile all source files in $PLUGIN_DIR folder$reset_color\n"
