@@ -21,9 +21,9 @@ source $PLUGIN_DIR/zmod/zmod.zsh
 #declare -A MODULES
 MODULES=(
   aliases
-#  history
-#  colored-man
-#  dircolor
+  history
+  colored-man
+  dircolor
   completions
 )
 
