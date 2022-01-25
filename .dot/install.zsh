@@ -9,8 +9,8 @@
 #
 # https://patorjk.com/software/taag/#p=display&c=bash&f=Doom&t=Install
 ### Install basic tools
-## zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Onfroygmx/dot/master/.dot/install.zsh)"
-## curl -fsSL https://raw.githubusercontent.com/Onfroygmx/dot/master/.dot/install.zsh | zsh
+## zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Onfroygmx/dot/main/.dot/install.zsh)"
+## curl -fsSL https://raw.githubusercontent.com/Onfroygmx/dot/main/.dot/install.zsh | zsh
 
 ## Autoload zsh functions
 #################################################
