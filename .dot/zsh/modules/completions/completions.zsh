@@ -11,6 +11,8 @@ setopt auto_menu            # Show completion menu on a successive tab press.
 setopt auto_list            # Automatically list choices on ambiguous completion.
 setopt auto_param_slash     # If completed parameter is a directory, add a trailing slash.
 setopt extended_glob        # Needed for file modification glob modifiers with compinit.
+setopt no_list_beep         # Don't beep on an ambiguous completion.
+setopt list_packed          # Use columns of varying widths.
 unsetopt menu_complete      # Do not autoselect the first completion entry.
 #unsetopt flow_control      # Disable start/stop characters in shell editor.
 #setopt path_dirs           # Perform path search even on command names with slashes.
