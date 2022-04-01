@@ -90,7 +90,7 @@ git clone --depth=1 https://github.com/scopatz/nanorc.git $PLUGIN_DIR/nano-synta
 
 for plug in $PLUGINS; do
     printf "\n$fg[yellow]Clone: $plug$reset_color\n"
-    git clone --depth=1 https://github.com/$plug.git $PLUGIN_DIR/$plug
+    git clone --recursive --shallow-submodules --depth=1 -b https://github.com/$plug.git $PLUGIN_DIR/$plug
 done
 
 printf "\n$fg[green]Compile all source files in $PLUGIN_DIR folder$reset_color\n"
