@@ -1,0 +1,160 @@
+# All code snippets:
+
+## Backup .dot folder
+#  dotfile-2021-08-31_22:35:34.tar.gz
+tar -cvjf /Volumes/DATA/BACKUP/dotfile/dotfile-$(date +%F)_${(%):-%*}.tar.gz .dot 
+
+## BREW:
+localHomebrewVersion="$(brew --version | awk '/Homebrew [0-9]/{print $2}')"
+latestHomebrewRelease="$(curl -sL https://api.github.com/repos/Homebrew/brew/releases/latest | ruby -rjson -e 'puts JSON.parse($<.read)["name"]')"
+
+error: Not a valid ref: refs/remotes/origin/master
+Type which brew in the terminal and it's shows you the location of brew! You're actually overwriting an existing install having a broken core tap. I was also stuck with this problem for more than 5 hours :)
+Run these commands into your terminal:
+
+rm -fr $(brew --repo homebrew/core) # because you can't brew untap homebrew/core
+brew tap homebrew/core
+
+
+eval "$(/usr/local/bin/brew shellenv)"
+
+
+## GIT
+git stash show -p
+git stash show -p stash@{2}
+git stash show -p 2
+
+git stash list
+git stash show -p stash@{0} 
+
+#Add credentials Linux:
+git config --global credential.helper 'store --file /home/<user>/.git-credentials'
+git dot config --local credential.helper 'store --file $XDG_CONFIG_HOME/cfg/git/git-credentials'
+
+git ls-remote https://Onfroygmx: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@github.com/Onfroygmx/dotbench
+
+## XCODE:
+# Versions:
+echo Xcode: $(pkgutil --pkg-info=com.apple.pkg.Xcode | awk '/version:/ {print $2}')
+echo CommandLineTools: $(pkgutil --pkg-info=com.apple.pkg.CLTools_Executables | awk '/version:/ {print $2}')
+
+
+## MACOS Updates:
+$ softwareupdate --list
+Software Update Tool
+
+Finding available software
+Software Update found the following new or updated software:
+* Label: Command Line Tools for Xcode-11.3
+    Title: Command Line Tools for Xcode, Version: 11.3, Size: 224878K, Recommended: YES,
+$ sudo softwareupdate -i "Command Line Tools for Xcode-11.3"
+$ softwareupdate -d 'macOS Big Sur 11.6.1-20G224'
+
+Find COmmand line tools version:
+pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
+
+List all full installers:
+softwareupdate --list-full-installers
+
+Download specific version
+softwareupdate --fetch-full-installer --full-installer-version 12.7.4
+
+Force restart update server:
+$ sudo launchctl kickstart -k system/com.apple.softwareupdated
+
+## NANO:
+How to Delete Line in Nano?
+First, you need to press CTRL + Shift + 6 to mark the start of your block
+Now, shift the cursor to the end of the block with the arrow keys, and it will outline the text.
+Finally, press CTRL + K to cut/delete a block and it will remove a line in nano.
+
+# MZVOX
+I think it has been this way for awhile. It was likely downloading firmware updates, which aren't included in the full installer. If you create a bootable USB using the createinstallmedia command, you can include the firmware updates by using the --downloadassets flag, so then it doesn't have to go out and fetch them during the install.
+sudo /Applications/Install\ macOS\ Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/Untitled --downloadassets
+
+
+# MACOS
+onf ~ > networkQuality -h                                                                                                                                                                                                                                              19:23:24
+USAGE: networkQuality [-C <configuration_url>] [-c] [-h] [-I <interfaceName>] [-s] [-v]
+    -C: override Configuration URL
+    -c: Produce computer-readable output
+    -h: Show help (this message)
+    -I: Bind test to interface (e.g., en0, pdp_ip0,...)
+    -s: Run tests sequentially instead of parallel upload/download
+    -v: Verbose output
+onf ~ > networkQuality -v                                                                                                                                                                                                                                              19:23:29
+==== SUMMARY ====                                                                                         
+Upload capacity: 579.667 Kbps
+Download capacity: 2.483 Mbps
+Upload flows: 20
+Download flows: 20
+Responsiveness: Low (54 RPM)
+Base RTT: 29
+Start: 20/11/2021 19:23:37
+End: 20/11/2021 19:24:01
+OS Version: Version 12.0.1 (Build 21A559)
+
+
+
+## RSYNC
+rsync -a --delete --backup --backup-dir="$ARCHIVE/$DATE" -f "merge $FILTERS" $SOURCE $DESTINATION
+
+#ZSH DEBUG:
+zsh --source-trace
+print $options[rcs]
+
+zsh -xvic exit &> ~/debug.log
+
+repeat 10 { time zsh -i -c exit; }
+for i in $(seq 1 10); do time zsh -ic exit; done;
+
+Show all options:
+printf '%s := %s\n' "${(@kv)options}"
+
+exec -l zsh --sourcetrace
+( exec -l zsh --sourcetrace -xc '' )
+
+# Number of functions in fpath
+for d in $fpath; do n=$(ls $d/* | wc -l); echo "$n $d"; done | sort -nr | head -3
+
+# Show alla aliases defined during startup
+zsh -ixc : 2>&1 | grep 'alias'
+
+Here is a nice tutorials listing: https://github.com/unixorn/awesome-zsh-plugins#tutorials
+
+setup: https://github.com/robbyrussell/oh-my-zsh
+
+https://github.com/sorin-ionescu/prezto
+
+https://github.com/romkatv/powerlevel10k
+
+more (in no particular order)
+
+https://sourabhbajaj.com/mac-setup/iTerm/zsh.html
+
+https://www.sitepoint.com/zsh-commands-plugins-aliases-tools/
+
+https://www.arp242.net/zshrc.html
+
+https://www.thorsten-hans.com/5-types-of-zsh-aliases
+
+https://github.com/romkatv/zsh4humans
+
+https://github.com/olets/zsh-abbr
+
+https://thevaluable.dev/zsh-install-configure-mouseless/
+
+https://github.com/marlonrichert/zsh-hist
+
+https://github.com/marlonrichert/zsh-snap
+
+https://gist.github.com/ClementNerma/1dd94cb0f1884b9c20d1ba0037bdcde2
+
+https://timvisee.com/blog/elegant-bash-conditionals/
+
+https://thevaluable.dev/zsh-completion-guide-examples/
+
+## TYPE
+type cd
+type ls
+
