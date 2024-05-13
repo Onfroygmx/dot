@@ -158,3 +158,12 @@ https://thevaluable.dev/zsh-completion-guide-examples/
 type cd
 type ls
 
+# LOOP
+() { for 1; source -- $1 } ~/.zsh_aliases/*.zshrc(ND)
+for p in ~/.zshrc-source/*.zsh(N); source $p
+(){
+    local p
+    for p in ~/.zshrc-source/*.zsh(N); source $p
+}
+https://old.reddit.com/r/zsh/comments/1cnvgi6/can_i_use_multiple_zshrc_files_for_aliases/
+

@@ -25,6 +25,7 @@ MODULES=(
   colored-man
   dircolor
   completions
+  broot
 )
 
 PLUGINS=(
@@ -42,3 +43,5 @@ done
 # source $MODULE_DIR/debug/debug_off.zsh
 
 STARTUP_Z=$EPOCHREALTIME
+
+# source /Users/onf/.config/broot/launcher/bash/br
