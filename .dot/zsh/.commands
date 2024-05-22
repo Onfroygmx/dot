@@ -18,6 +18,9 @@ brew tap homebrew/core
 
 eval "$(/usr/local/bin/brew shellenv)"
 
+# Loop to source different files and folders
+() { for 1; source -- $1 } ~/.zsh_aliases/*.zshrc(ND)
+
 
 ## GIT
 git stash show -p
