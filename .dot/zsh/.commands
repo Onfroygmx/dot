@@ -43,6 +43,11 @@ git ls-remote https://Onfroygmx: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@github.
 https://stackoverflow.com/questions/3225862/multiple-github-accounts-ssh-config
 
 
+## ZSH
+https://old.reddit.com/r/zsh/comments/1etl9mz/fastest_plugin_manager/
+zsh plugin-compile() { local f autoload -Uz zrecompile for f in $ZDOTDIR/plugins/**/*.zsh; do [[ $f != */test-data/* ]] || continue # fix for zsh-syntax-highlighting zrecompile -pq "$f" done }
+
+
 ## XCODE:
 # Versions:
 echo Xcode: $(pkgutil --pkg-info=com.apple.pkg.Xcode | awk '/version:/ {print $2}')
